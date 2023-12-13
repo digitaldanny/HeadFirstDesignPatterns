@@ -1,9 +1,13 @@
-# Key Terms
+# Repo Description
 
-**Abstract Class:** 
-- Reference: https://en.cppreference.com/w/cpp/language/abstract_class
-- An abstract class is a class that either defines or inherits at least one function for which the final overrider is pure virtual.
-- Abstract classes are used to represent general concepts (for example, Shape, Animal), which can be used as base classes for concrete classes (for example, Circle, Dog).
-- No objects of an abstract class can be created (except for base subobjects of a class derived from it) and no non-static data members whose type is an abstract class can be declared.
-- Abstract types cannot be used as parameter types, as function return types, or as the type of an explicit conversion (note this is checked at the point of definition and function call, since at the point of function declaration parameter and return type may be incomplete).
+This repo contains my personal solutions (or solution attempts) while reading through the textbook "Head First Design Patterns" by Eric Freeman and Elisabeth Robson.
 
+The textbook examples are given in Java, but my solutions will be in C++ since that is the language I primarily use in my job.
+
+# Repo Organization
+
+Each chapter has its own folder in this repo, and individual puzzles or "design challenges" will have their own subfolder. Each chapter's README will contain my notes from the textbook, along with links to other references I used to clarify details.
+
+Design challenge subfolders contain a README with notes about my solutions.
+
+Design challenge subfolders will may also contain files copied from previous exercises, as sequential challenges sometimes build upon each other. This is a rare instance where I am allowing code duplication just to make referencing these files easier in the future.
