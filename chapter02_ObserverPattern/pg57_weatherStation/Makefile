@@ -6,13 +6,13 @@ CC = g++
 #  -Wall  - this flag is used to turn on most compiler warnings
 CFLAGS  = -g -Wall
  
-# The build target 
-TARGET = main
+all: mainapp
+
+mainapp: main.o
+	$(CC) $(CFLAGS) main.o
  
-all: $(TARGET)
- 
-$(TARGET): $(TARGET).cpp
-	$(CC) $(CFLAGS) -o $(TARGET).exe $(TARGET).cpp
+main.o: main.cpp
+	$(CC) $(CFLAGS) main.cpp
  
 clean:
-	$(RM) $(TARGET)
+	$(RM) mainapp
