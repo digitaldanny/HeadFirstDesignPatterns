@@ -1,8 +1,17 @@
+#include "Observers.hpp"
+#include "Subjects.hpp"
 #include <iostream>
 
-using std::cout, std::endl;
+using std::cout;
+using std::endl;
 
 int main()
 {
-    cout << "Hello world!" << endl;
+    CurrentConditionsDisplay currentConditionsDisplay;
+    StatisticsDisplay statisticsDisplay;
+
+    cout << "Running main program!" << endl;
+
+    currentConditionsDisplay.update();
+    statisticsDisplay.update();
 }
