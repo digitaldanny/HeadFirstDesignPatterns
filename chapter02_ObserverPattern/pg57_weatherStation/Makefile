@@ -7,8 +7,8 @@ CC = g++
 CFLAGS  = -g -Wall
 
 TARGET=app
-OBJECTS=main.o ConcreteObservers.o
-DEPS=Observers.hpp Subjects.hpp
+OBJECTS=main.o ConcreteObservers.o WeatherData.o
+DEPS=Observers.hpp Subjects.hpp WeatherData.hpp ConcreteObservers.hpp
  
 # Makefile build rule format..
 # target: dependencies
