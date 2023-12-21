@@ -23,8 +23,5 @@
 
 **When to use Abstract Class vs Interface?**
 - [Youtube - Interfaces vs Abstract Classes](https://www.youtube.com/watch?v=PPZ_vZcF2AU)
-- Diff 1: Abstract class contains both DECLARATION and DEFINITION. Interface contains only DECLARATION.
-- Diff 2: You can only inherit from ONE abstract class, but you can inherit from MULTIPLE interfaces.
-- Diff 3: Abstract class can have constructor but not interfaces.
-- ABSTRACT CLASS is a good choice when you are sure some methods are concrete/defined and must be implemented the SAME WAY in all derived classes.
-- INTERFACE is a good choice because it gives us the flexibility to modify the behavior at a later stage in the subclass, and we can pull in behaviors when necessary.
+- Abstract classes can provide a default implementation if a sensible one exists, so subclasses do not have to implement them. ABSTRACT CLASS is a good choice when you are sure some methods are concrete/defined and must be implemented the SAME WAY in all derived classes.
+- Interface subclasses must implement ALL the methods. INTERFACE is a good choice because it gives us the flexibility to modify the behavior at a later stage in the subclass, and we can pull in behaviors when necessary.
