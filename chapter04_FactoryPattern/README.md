@@ -35,9 +35,21 @@ The Factory may have MULTIPLE clients, so encapsulating that object creation mea
 
 **Static Factory:** Instead of creating a different class to do the object instantiation, it is common to have a STATIC method that does the instantiation. So this method could be called without instantiating the class. However, one disadvantage is that static methods cannot be virtual/overriden by subclasses.
 
-**Factory Method Pattern:** 
+**Factory Method vs Abstract Factory:** Both are used to decouple applications from specific implementations by creating the necessary objects, but they do it in a different way.
 
-# Pros and Cons
+- **Factory Method Pattern:** Create objects _through inheritence_. You need to extend a class and provide an implementation for a factory method.
+
+- **Abstract Factory Pattern:** Create objects _through object composition_. Abstract Factory is an abstract type for creating a _family of products_. Subclasses of this type define how those products are produced. To use the factory, you instantiate one and pass it into some code that is written _against the abstract type_.
+  - Pro: Group together a set of related products.
+  - Con: If you need to add a new product to a group of related products, you will need to change the interface / every subclass' implementation.
 
 
 # Diagram
+
+Factory Method Pattern Diagram
+
+![factoryMethod](/images/pg160-factoryMethod.jpg)
+
+Abstract Factory Pattern
+
+![absractFactory](/images/pg161_abstractFactory.jpg)
