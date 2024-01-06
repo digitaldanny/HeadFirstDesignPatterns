@@ -8,29 +8,27 @@
 * the command pattern.
 */
 
-#include <iostream>
-
 class OutdoorLight
 {
 public:
-    void on() {std::cout << "OutdoorLight ON" << std::endl; }
-    void off() {std::cout << "OutdoorLight OFF" << std::endl; }
+    void on();
+    void off();
 };
 
 class CeilingFan
 {
 public:
-    void high() { std::cout << "CeilingFan: High" << std::endl; }
-    void medium() { std::cout << "CeilingFan: Medium" << std::endl; }
-    void low() { std::cout << "CeilingFan: Low" << std::endl; }
-    void off() { std::cout << "CeilingFan: Off" << std::endl; }
+    void high();
+    void medium();
+    void low();
+    void off();
 };
 
 class Sprinkler
 {
 public:
-    void waterOn() { std::cout << "Sprinkler: Water On" << std::endl; }
-    void waterOff() { std::cout << "Sprinkler: Water Off" << std::endl; }
+    void waterOn();
+    void waterOff();
 };
 
 #endif // VENDORS_HPP

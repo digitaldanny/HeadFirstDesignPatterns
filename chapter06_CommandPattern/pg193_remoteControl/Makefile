@@ -2,8 +2,10 @@
 CXX=g++
 
 TARGET=app
-OBJECTS=main.o
-DEPS=OutdoorLight.hpp Command.hpp VendorCommands.hpp RemoteControl.hpp
+OBJECTS=main.o vendors.o VendorCommands.o RemoteControl.o
+DEPS=vendors.hpp VendorCommands.hpp Command.hpp RemoteControl.hpp
+#OBJECTS=main.o vendors.o RemoteControl.o VendorCommands.o
+#DEPS=OutdoorLight.hpp Command.hpp VendorCommands.hpp RemoteControl.hpp Command.hpp
 
 # compiler flags:
 #  -g     - this flag adds debugging information to the executable file
