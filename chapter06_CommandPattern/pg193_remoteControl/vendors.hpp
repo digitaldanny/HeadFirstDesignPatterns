@@ -15,14 +15,23 @@ public:
     void off();
 };
 
+
+enum CeilingFanState{ OFF, LOW, MED, HIGH};
+
 class CeilingFan
 {
+private:
+    CeilingFanState state;
+
 public:
+    CeilingFan();
+    CeilingFanState getState();
     void high();
     void medium();
     void low();
     void off();
 };
+
 
 class Sprinkler
 {

@@ -35,7 +35,45 @@ public:
 
 
 // CEILING FAN - Implements a state machine
+class CommandCeilingFanOn : public Command
+{
+private:
+    CeilingFan* fan;
+public:
+    CommandCeilingFanOn(CeilingFan* fan);
+    void execute();
+    std::string getClassName();
+};
+
+class CommandCeilingFanOff : public Command
+{
+private:
+    CeilingFan* fan;
+public:
+    CommandCeilingFanOff(CeilingFan* fan);
+    void execute();
+    std::string getClassName();
+};
 
 // SPRINKLER
+class CommandSprinklerOn : public Command
+{
+private:
+    Sprinkler* sprinkler;
+public:
+    CommandSprinklerOn(Sprinkler* sprinkler);
+    void execute();
+    std::string getClassName();
+};
+
+class CommandSprinklerOff : public Command
+{
+private:
+    Sprinkler* sprinkler;
+public:
+    CommandSprinklerOff(Sprinkler* sprinkler);
+    void execute();
+    std::string getClassName();
+};
 
 #endif // VENDOR_COMMANDS_HPP

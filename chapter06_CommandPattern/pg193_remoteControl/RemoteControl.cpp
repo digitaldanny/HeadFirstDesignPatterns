@@ -14,6 +14,12 @@ RemoteControl::RemoteControl()
 
 void RemoteControl::setCommand(uint32_t slot, Command* onCommand, Command* offCommand) 
 {
+    if (slot >= REMOTE_CONTROL_MAX_COMMANDS)
+    {
+        std::cout << "Slot assignment request exceeded max number of command slots" << std::endl;
+        return;
+    }
+
     this->onCommands[slot] = onCommand;
     this->offCommands[slot] = offCommand;
 }
