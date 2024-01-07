@@ -9,6 +9,7 @@ class NullCommand : public Command
 {
 public:
     void execute();
+    void undo();
     std::string getClassName();
 };
 
@@ -20,6 +21,7 @@ private:
 public:
     CommandOutdoorLightOn(OutdoorLight* light);
     void execute();
+    void undo();
     std::string getClassName();
 };
 
@@ -30,6 +32,7 @@ private:
 public:
     CommandOutdoorLightOff(OutdoorLight* light);
     void execute();
+    void undo();
     std::string getClassName();
 };
 
@@ -42,6 +45,7 @@ private:
 public:
     CommandCeilingFanOn(CeilingFan* fan);
     void execute();
+    void undo();
     std::string getClassName();
 };
 
@@ -52,6 +56,7 @@ private:
 public:
     CommandCeilingFanOff(CeilingFan* fan);
     void execute();
+    void undo();
     std::string getClassName();
 };
 
@@ -63,6 +68,7 @@ private:
 public:
     CommandSprinklerOn(Sprinkler* sprinkler);
     void execute();
+    void undo();
     std::string getClassName();
 };
 
@@ -73,6 +79,7 @@ private:
 public:
     CommandSprinklerOff(Sprinkler* sprinkler);
     void execute();
+    void undo();
     std::string getClassName();
 };
 

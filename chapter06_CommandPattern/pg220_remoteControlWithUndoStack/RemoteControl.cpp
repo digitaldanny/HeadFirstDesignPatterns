@@ -41,6 +41,35 @@ void RemoteControl::listDevices()
     }
 }
 
-void RemoteControl::onButtonPressed(uint32_t slot) { this->onCommands[slot]->execute(); }
-void RemoteControl::offButtonPressed(uint32_t slot) { this->offCommands[slot]->execute(); }
+void RemoteControl::onButtonPressed(uint32_t slot) 
+{ 
+    Command* command = this->onCommands[slot];
+    commandHistory.push(command);
+    command->execute(); 
+}
+
+void RemoteControl::offButtonPressed(uint32_t slot) 
+{ 
+    Command* command = this->offCommands[slot];
+    commandHistory.push(command);
+    command->execute(); 
+}
+
+bool RemoteControl::isHistoryEmpty()
+{
+    return !(commandHistory.size());
+}
+
+void RemoteControl::undoLastCommand()
+{
+    if (isHistoryEmpty())
+    {
+        return;
+    }
+
+    Command* commandLastExecuted = commandHistory.top();
+    commandHistory.pop();
+    commandLastExecuted->undo();
+}
+
 int RemoteControl::getMaxCommands() { return REMOTE_CONTROL_MAX_COMMANDS; }

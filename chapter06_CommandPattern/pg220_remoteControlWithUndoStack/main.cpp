@@ -9,7 +9,7 @@ EXPECTED OUTPUT:
 Starting test program!
 Calling remote control constructor
 
-Expectation #1
+Expectation #1 Assign the first three vendor commands..s
 Slot assignment request exceeded max number of command slots
 SLOT      ON                            OFF                           
 0         CommandOutdoorLightOn         CommandOutdoorLightOff        
@@ -20,7 +20,7 @@ SLOT      ON                            OFF
 5         NullCommand                   NullCommand                   
 6         CommandSprinklerOn            CommandSprinklerOff           
 
-Expectation #2: 
+Expectation #2: Press on/off buttons. Expectation is that NullCommands do not output anything, but the valid commands have a print statement.
 Pressing on/off once for each device..
 OutdoorLight ON
 OutdoorLight OFF
@@ -29,7 +29,15 @@ CeilingFan: Off
 Sprinkler: Water On
 Sprinkler: Water Off
 
-Expectation #3:
+Expectation #3: Undo all of the recently executed commands.. Should result in inverse of previous commands
+Sprinkler: Water Off
+Sprinkler: Water On
+CeilingFan: Off
+CeilingFan: Low
+OutdoorLight OFF
+OutdoorLight ON
+
+Expectation #4: Press the ceiling fan buttons a few times to make sure the state changes
 Testing state machine for the ceiling fan..
 CeilingFan: Low
 CeilingFan: Medium
@@ -44,7 +52,7 @@ int main()
     // Initialize all commands on remote to be empty at first
     RemoteControl remoteControl;
 
-    // Expectation #1: Assign the first three vendor commands..
+    // Expectation #1:
     OutdoorLight outdoorLight;
     CommandOutdoorLightOn commandOutdoorLightOn(&outdoorLight);
     CommandOutdoorLightOff commandOutdoorLightOff(&outdoorLight);
@@ -63,8 +71,7 @@ int main()
 
     remoteControl.listDevices();
 
-    // Expectation #2: Press on/off buttons. Expectation is that NullCommands do not output anything, but 
-    // the valid commands have a print statement.
+    // Expectation #2:
     std::cout << "Pressing on/off once for each device.." << std::endl;
     for (int slot = 0; slot < remoteControl.getMaxCommands(); slot++)
     {
@@ -72,7 +79,14 @@ int main()
         remoteControl.offButtonPressed(slot);
     }
 
-    // Expectation #3: Press the ceiling fan buttons a few times to make sure the state changes
+    // Expectation #3:
+    std::cout << "Undoing all recent commands.." << std::endl;
+    while (!remoteControl.isHistoryEmpty())
+    {
+        remoteControl.undoLastCommand();
+    }
+
+    // Expectation #4:
     std::cout << "Testing state machine for the ceiling fan.." << std::endl;
     remoteControl.onButtonPressed(3); // off -> low
     remoteControl.onButtonPressed(3); // low -> med

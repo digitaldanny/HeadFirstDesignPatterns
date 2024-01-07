@@ -1,9 +1,12 @@
 #include "VendorCommands.hpp"
 
+#include <iostream>
+
 // +-----+-----+-----+-----+-----+-----+-----+-----+
 // NULL COMMAND
 // +-----+-----+-----+-----+-----+-----+-----+-----+
 void NullCommand::execute() {}
+void NullCommand::undo() {}
 std::string NullCommand::getClassName() {return std::string("NullCommand"); }
 
 
@@ -12,10 +15,12 @@ std::string NullCommand::getClassName() {return std::string("NullCommand"); }
 // +-----+-----+-----+-----+-----+-----+-----+-----+
 CommandOutdoorLightOn::CommandOutdoorLightOn(OutdoorLight* light) { this->light = light; }
 void CommandOutdoorLightOn::execute() { light->on(); }
+void CommandOutdoorLightOn::undo() { light->off(); }
 std::string CommandOutdoorLightOn::getClassName() {return std::string("CommandOutdoorLightOn"); }
 
 CommandOutdoorLightOff::CommandOutdoorLightOff(OutdoorLight* light) { this->light = light; }
 void CommandOutdoorLightOff::execute() { light->off(); }
+void CommandOutdoorLightOff::undo() { light->on(); }
 std::string CommandOutdoorLightOff::getClassName() {return std::string("CommandOutdoorLightOff"); }
 
 
@@ -46,9 +51,21 @@ void CommandCeilingFanOn::execute()
     };
 }
 
+void CommandCeilingFanOn::undo() 
+{  
+    // TODO
+    std::cout << "Need to implement!!" << std::endl;
+}
+
 CommandCeilingFanOff::CommandCeilingFanOff(CeilingFan* fan) { this->fan = fan; }
 std::string CommandCeilingFanOff::getClassName() { return std::string("CeilingFanOff"); }
 void CommandCeilingFanOff::execute() { this->fan->off(); }
+
+void CommandCeilingFanOff::undo() 
+{  
+    // TODO
+    std::cout << "Need to implement!!" << std::endl;
+}
 
 // +-----+-----+-----+-----+-----+-----+-----+-----+
 // SPRINKLER COMMANDS
@@ -56,8 +73,10 @@ void CommandCeilingFanOff::execute() { this->fan->off(); }
 
 CommandSprinklerOn::CommandSprinklerOn(Sprinkler* sprinkler) { this->sprinkler = sprinkler; }
 void CommandSprinklerOn::execute() { this->sprinkler->waterOn(); }
+void CommandSprinklerOn::undo() { this->sprinkler->waterOff(); }
 std::string CommandSprinklerOn::getClassName() { return std::string("CommandSprinklerOn"); }
 
 CommandSprinklerOff::CommandSprinklerOff(Sprinkler* sprinkler) { this->sprinkler = sprinkler; }
 void CommandSprinklerOff::execute() { this->sprinkler->waterOff(); }
+void CommandSprinklerOff::undo() { this->sprinkler->waterOn(); }
 std::string CommandSprinklerOff::getClassName() { return std::string("CommandSprinklerOff"); }
