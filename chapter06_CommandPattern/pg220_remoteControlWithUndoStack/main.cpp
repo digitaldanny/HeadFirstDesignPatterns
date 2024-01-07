@@ -32,8 +32,8 @@ Sprinkler: Water Off
 Expectation #3: Undo all of the recently executed commands.. Should result in inverse of previous commands
 Sprinkler: Water Off
 Sprinkler: Water On
-CeilingFan: Off
-CeilingFan: Low
+Undo not implemented for ceiling fan (stack of ceiling fan states needed for this)
+Undo not implemented for ceiling fan (stack of ceiling fan states needed for this)
 OutdoorLight OFF
 OutdoorLight ON
 

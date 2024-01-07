@@ -15,25 +15,25 @@ CeilingFan::CeilingFan() { this->state = OFF; }
 CeilingFanState CeilingFan::getState() { return this->state; }
 
 void CeilingFan::high() 
-{ 
+{
     this->state = HIGH;
     std::cout << "CeilingFan: High" << std::endl; 
 }
 
 void CeilingFan::medium() 
-{ 
+{
     this->state = MED;
     std::cout << "CeilingFan: Medium" << std::endl; 
 }
 
 void CeilingFan::low() 
-{ 
+{
     this->state = LOW;
     std::cout << "CeilingFan: Low" << std::endl; 
 }
 
 void CeilingFan::off() 
-{ 
+{
     this->state = OFF;
     std::cout << "CeilingFan: Off" << std::endl; 
 }

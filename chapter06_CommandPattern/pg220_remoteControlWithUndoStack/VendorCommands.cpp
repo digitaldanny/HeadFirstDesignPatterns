@@ -53,8 +53,8 @@ void CommandCeilingFanOn::execute()
 
 void CommandCeilingFanOn::undo() 
 {  
-    // TODO
-    std::cout << "Need to implement!!" << std::endl;
+    // TODO - would require a stack of fan states for one than one revert..
+    std::cout << "Undo not implemented for ceiling fan" << std::endl;
 }
 
 CommandCeilingFanOff::CommandCeilingFanOff(CeilingFan* fan) { this->fan = fan; }
@@ -63,8 +63,8 @@ void CommandCeilingFanOff::execute() { this->fan->off(); }
 
 void CommandCeilingFanOff::undo() 
 {  
-    // TODO
-    std::cout << "Need to implement!!" << std::endl;
+    // TODO - would require a stack of fan states for one than one revert..
+    std::cout << "Undo not implemented for ceiling fan" << std::endl;
 }
 
 // +-----+-----+-----+-----+-----+-----+-----+-----+
